@@ -1,11 +1,24 @@
 import XCTest
+import SwiftUI
+
 @testable import PennyFramework
 
 final class PennyFrameworkTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(PennyFramework().text, "Hello, World!")
+    @State var text: String
+    
+    public init(text: String) {
+//        self._text = State(initialValue: text)
+        self.text = text
+        super.init()
     }
+
+    func testExample() throws {
+        var body: some View {
+            PennyFramework.MainTextField(placeholder: "Testing", text: $text)
+        }
+    }
+    
+    static var allTests = [
+        ("testExample", testExample),
+    ]
 }
