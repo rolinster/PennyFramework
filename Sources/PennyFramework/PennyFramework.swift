@@ -3,8 +3,8 @@ import SwiftUI
 public struct PennyFramework {
     public struct MainTextField: View {
         
-        @State var placeholder: String
-        @Binding var text: String
+        @State public var placeholder: String
+        @Binding public var text: String
         
         public init(placeholder: String, text: Binding<String>) {
             self._placeholder = State(initialValue: placeholder)
